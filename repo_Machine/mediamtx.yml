@@ -1,0 +1,26 @@
+###############################################
+# Configuración de MediaMTX para Balatro Vision
+###############################################
+
+# Nivel de logs para ver qué está pasando en la consola
+logLevel: info
+
+# Puertos para los distintos protocolos
+# RTMP es el que usaremos para OBS (puerto 1935)
+rtmp: yes
+rtmpAddress: :1935
+
+# HLS permite ver el video en un navegador (opcional, puerto 8888)
+hls: yes
+hlsAddress: :8888
+
+# API para control (opcional, puerto 9997)
+api: yes
+apiAddress: :9997
+
+# Configuración de las rutas de video
+paths:
+  all:
+    # "all" significa que aceptará cualquier nombre de stream
+    # Ejemplo: /live/balatro, /test/video, etc.
+    source: publisher

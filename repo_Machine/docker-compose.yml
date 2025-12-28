@@ -1,0 +1,18 @@
+services:
+  # Servidor que recibe el video de OBS
+  rtmp-server:
+    image: bluenviron/mediamtx:latest
+    ports:
+      - "1935:1935"
+      - "8888:8888" 
+    # Quitamos el mediamtx.yml externo para usar la config por defecto que funciona bien
+
+  # Tu script de detección
+  balatro-ai:
+    build: .
+    container_name: balatro_vision
+    depends_on:
+      - rtmp-server
+    volumes:
+      - .:/app
+    # HEMOS QUITADO LA SECCIÓN DE NVIDIA PARA EVITAR EL ERROR
